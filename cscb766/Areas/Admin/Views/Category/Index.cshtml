@@ -1,0 +1,51 @@
+﻿@model List<Category>
+<partial name = "_Notification" />
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6"><h2 class="text-primary">Лист с категории</h2></div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle-fill"></i> Създай категория
+            </a>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Име на Категория
+            </th>
+            <th>
+                Ред на представяне
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model.OrderBy(u => u.DisplayOrder))
+        {
+            <tr>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj.DisplayOrder
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil-square"></i>Промени
+                        </a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-secondary mx-2">
+                            <i class="bi bi-file-earmark-x-fill"></i>Изтрии
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

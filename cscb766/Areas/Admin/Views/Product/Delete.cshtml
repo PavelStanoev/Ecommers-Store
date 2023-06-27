@@ -1,0 +1,35 @@
+﻿@model Product
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Product</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" disable type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Description" class="p-0"></label>
+            <input asp-for="Description" disable type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Brand" class="p-0"></label>
+            <input asp-for="Brand" disable type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ListPrice" class="p-0"></label>
+            <input asp-for="ListPrice" disable type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="DiscountPrice" class="p-0"></label>
+            <input asp-for="DiscountPrice" disable type="text" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-secondary" style="width:150px">Delete record</button>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary" style="width:150px">
+            Back to List
+        </a>
+    </div>
+</form>
